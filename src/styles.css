@@ -18,3 +18,130 @@
 /* Shop service catalog administration */
 .catalog-admin-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#f3f7ef;padding:12px 14px;border-radius:8px;margin:13px 0;color:#68806a;font-size:9px}.catalog-admin-toolbar label{display:flex;align-items:center;gap:10px;font-weight:700}.catalog-admin-toolbar select{max-width:310px;height:34px;border:1px solid #e2e9df;border-radius:5px;background:white;color:#354237;padding:0 10px;font-size:10px}.catalog-admin-toolbar>span{white-space:nowrap}.service-editor{border:1px solid #e5ebe2;background:white;border-radius:9px;padding:16px;margin-bottom:13px}.service-editor-title{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}.service-editor-title b,.service-editor-title small{display:block}.service-editor-title b{font:700 12px Manrope,sans-serif;color:#334336}.service-editor-title small{font-size:8px;color:#8a9487;margin-top:4px}.service-cancel{border:0;background:transparent;color:#64806a;font-size:8px;font-weight:700}.service-editor-fields{display:grid;grid-template-columns:1.05fr 1.45fr .65fr .8fr;gap:9px;margin-bottom:12px}.service-editor-fields label{display:grid;gap:5px;color:#778276;font-size:8px;font-weight:700}.service-editor-fields input{width:100%;height:35px;border:1px solid #e4e9e1;border-radius:5px;padding:0 9px;outline:none;color:#344137;font-size:9px}.service-editor-fields input:focus,.catalog-admin-toolbar select:focus{border-color:#6c9874;box-shadow:0 0 0 2px #eaf2eb}.service-editor>.primary-action{height:35px;font-size:9px}.service-admin-list{display:grid;gap:8px}.service-admin-row{display:flex;align-items:center;gap:11px;padding:12px;border:1px solid #e8ece5;border-radius:8px;background:white}.service-admin-row .catalog-wrench{width:34px;height:34px}.service-admin-copy{min-width:0;flex:1}.service-admin-copy>b{font-size:10px;color:#354237}.service-admin-copy p{margin:4px 0;color:#818b80;font-size:8px}.service-admin-copy small{display:flex;align-items:center;gap:4px;color:#929b90;font-size:8px}.service-admin-row>strong{font:700 13px Manrope,sans-serif;color:#334336;white-space:nowrap}.service-admin-actions{display:flex;gap:5px}.service-admin-actions button{height:29px;padding:0 9px;border:1px solid #e1e9de;border-radius:5px;background:#fff;color:#3f7549;font-size:8px;font-weight:700}.service-admin-actions button.remove-service{color:#a45d52;border-color:#f0e2de}.service-admin-actions button:hover{background:#f4f7f1}@media(max-width:680px){.catalog-admin-toolbar{align-items:flex-start;flex-direction:column;padding:10px}.catalog-admin-toolbar label{width:100%;align-items:flex-start;flex-direction:column;gap:5px}.catalog-admin-toolbar select{width:100%;max-width:none}.service-editor{padding:12px}.service-editor-fields{grid-template-columns:1fr 1fr}.service-admin-row{gap:7px;padding:9px}.service-admin-row .catalog-wrench{width:28px;height:28px}.service-admin-copy>b{font-size:8px}.service-admin-copy p{font-size:7px}.service-admin-row>strong{font-size:10px}.service-admin-actions{flex-direction:column;gap:3px}.service-admin-actions button{height:24px;padding:0 6px;font-size:7px}}
 .otp-input{font:700 18px Manrope,sans-serif!important;letter-spacing:.38em!important;text-align:center}.otp-change-number{justify-self:start;border:0;background:transparent;color:#39764b;padding:3px 0;font-size:9px;font-weight:700}.otp-error{margin:12px 0 0!important;color:#b64f43!important;font-size:9px!important}.login-demo span{display:block}.login-demo b{color:#516c50}
+
+/* VahanMitra colour refresh: warm, energetic accents with clear contrast. */
+:root{
+  --ink:#1c2930;
+  --muted:#69777c;
+  --green:#087f70;
+  --green-dark:#075e59;
+  --mint:#e1f7ed;
+  --lime:#d8f36a;
+  --line:#e7e9e2;
+  --paper:#fff;
+  --orange:#f47a38;
+}
+body{background:#fffaf3;color:var(--ink)}
+.announcement{background:linear-gradient(90deg,#153c3b,#245c67 55%,#49456f);color:#f8fff6}
+.announcement b{color:#ffe16a}
+.header{background:#fffdf9;border-bottom-color:#eee9de}
+.brand-mark{background:linear-gradient(145deg,#10a38c,#087f70 58%,#f47a38);box-shadow:0 5px 12px #087f7030}
+.brand-word span{color:#087f70}
+.nav a:hover,.nav a.active{color:#087f70}
+.sign-in-button{border-color:#d8e8df;color:#126d5f;background:#f4fbf6}
+.hero{padding-top:52px;padding-bottom:45px}
+.hero h1 em{color:#ed713c}
+.eyebrow{color:#087f70}
+.eyebrow-line{background:#f47a38}
+.hero-art{background:radial-gradient(circle at 74% 23%,#fff08a 0 10%,transparent 10.5%),radial-gradient(ellipse at 24% 82%,#ffb195 0,transparent 39%),linear-gradient(140deg,#ffd6b5 0%,#ffeab6 48%,#d9e6ff 100%);box-shadow:inset 0 0 0 1px #ffffff80}
+.art-sun{background:#fff18c;box-shadow:0 0 0 17px #fff18c40}
+.art-road{background:#526b79;opacity:.84}
+.art-road span{border-color:#fff0bd}
+.car-body{background:linear-gradient(100deg,#ff784f,#ffb444)}
+.car-window{background:#365b68}
+.floating-card{box-shadow:0 12px 32px #5c4c3821}
+.float-icon{background:#dff7ed;color:#087f70}
+.float-star{color:#f6a928}
+.vehicle-strip{border-color:#efe5d7;background:linear-gradient(90deg,#fffaf3,#fffdf9);padding-inline:14px;border-radius:14px;margin-bottom:58px}
+.strip-label{color:#78817d}
+.vehicle-option{height:44px;border-radius:999px;border-color:#e7e5dc;color:#4a5b5e;transition:transform .18s,background .18s,box-shadow .18s}
+.vehicle-option:hover{transform:translateY(-2px);box-shadow:0 8px 18px #253d2d12}
+.vehicle-option svg{color:#087f70}
+.vehicle-option.selected{background:#e1f7ed;border-color:#85d2b5;color:#075e59;box-shadow:inset 0 0 0 1px #b8ead3}
+.strip-help a{color:#e76638}
+.service-tile{border-radius:15px;min-height:142px;padding:20px;background:#fff;box-shadow:0 5px 18px #28352e08}
+.service-tile:nth-child(1){background:linear-gradient(145deg,#fff1e9,#fffaf6)}
+.service-tile:nth-child(2){background:linear-gradient(145deg,#fff5d9,#fffdf5)}
+.service-tile:nth-child(3){background:linear-gradient(145deg,#eaf5ff,#f9fcff)}
+.service-tile:nth-child(4){background:linear-gradient(145deg,#e7f8ef,#fafffb)}
+.service-tile:nth-child(1) .service-icon{background:#ffe0d1;color:#e45e38}
+.service-tile:nth-child(2) .service-icon{background:#ffebad;color:#a86b0b}
+.service-tile:nth-child(3) .service-icon{background:#d7eaff;color:#3f69c7}
+.service-tile:nth-child(4) .service-icon{background:#d0f0dc;color:#118269}
+.service-name{color:#26363a;font-size:13px}
+.service-desc{color:#667579;font-size:10px}
+.service-tile:hover,.service-tile.service-active{border-color:#74c9a6;box-shadow:0 12px 26px #246b5018;transform:translateY(-3px)}
+.tile-arrow{color:#087f70}
+.section-head h2,.how-section h2{color:#1c2930}
+.partner-head .section-desc b{color:#087f70}
+.garage-card{border-color:#eee7dc;border-radius:15px;box-shadow:0 6px 20px #352d1d08}
+.garage-card:hover{box-shadow:0 16px 34px #352d1d18}
+.garage-image{height:166px}
+.garage-image.garage{background:linear-gradient(135deg,#ffe0cb,#ffab8d 58%,#f4d17a)}
+.garage-image.car{background:linear-gradient(135deg,#e4d9ff,#b6a8f0 58%,#f0b9cb)}
+.garage-image.bike{background:linear-gradient(135deg,#e4f4a9,#b5dc7d 55%,#ffe28d)}
+.garage-image.truck{background:linear-gradient(135deg,#c9e8f4,#8dbed7 58%,#c2d4ff)}
+.garage-image .image-art{filter:drop-shadow(0 10px 14px #26342d25)}
+.garage-image.garage .image-art{background:#fff0d9}
+.garage-image.car .image-art{background:#fff1fa}
+.garage-image.bike .image-art{background:#fbffd9}
+.garage-image.truck .image-art{background:#e5f7ff}
+.offer-pill{background:#fff7df;color:#955512;border-color:#fff0b3}
+.verified-pill{background:#e6fbf0;color:#08755f}
+.garage-info{padding:17px 18px 16px}
+.garage-title-row h3{color:#1f3034}
+.rating{color:#a76b08;background:#fff4d7;padding:5px 7px;border-radius:8px}
+.garage-chips span{background:#edf8f5;color:#08705f;border-color:#d9f0e6}
+.book-button,.query-field button,.primary-action,.catalog-price button{background:linear-gradient(105deg,#078875,#0c9b78);border-radius:999px;box-shadow:0 6px 14px #07887526}
+.book-button:hover,.query-field button:hover,.primary-action:hover,.catalog-price button:hover{background:linear-gradient(105deg,#076d66,#087f70)}
+.garage-details-button{color:#087f70}
+.roadside-banner{background:linear-gradient(110deg,#163f50,#284678 57%,#544375);border-radius:18px;padding:29px 32px;box-shadow:0 14px 30px #26445b20}
+.banner-icon{background:#385d73;color:#ffe26a}
+.banner-icon span{background:#ffe26a;color:#273a4d;border-color:#274a63}
+.banner-kicker{color:#ffe26a}
+.roadside-banner>button{background:#ffe16a;color:#273a4d;border-radius:999px}
+.how-step-number{background:#e6f6ef;color:#087f70}
+.footer{background:#123f3c}
+.modal-backdrop{background:#102a2abf}
+.booking-modal{border-radius:20px;border-color:#fff4e5;box-shadow:0 28px 85px #172f3540}
+.modal-summary{background:linear-gradient(100deg,#effbf4,#fff6e9);border-color:#deeee4;border-radius:13px}
+.summary-icon{background:#e0f4e9;color:#087f70;border-radius:12px}
+.shop-detail-hero{border-radius:19px}
+.shop-detail-hero.garage{background:linear-gradient(115deg,#fff0df,#ffd0b5 55%,#fff1ad)}
+.shop-detail-hero.car{background:linear-gradient(115deg,#f0eaff,#d7c9ff 55%,#f8d8e7)}
+.shop-detail-hero.bike{background:linear-gradient(115deg,#f5fbd9,#e3f2a8 55%,#ffedba)}
+.shop-detail-hero.truck{background:linear-gradient(115deg,#e4f5fb,#b9e1ef 55%,#d4ddff)}
+.shop-detail-art{color:#17444b1c}
+.shop-detail-copy h1{color:#1c2930}
+.catalog-count{background:#e1f7ed;color:#08705f}
+.shop-service-list{border-radius:15px;box-shadow:0 8px 22px #28352e08}
+.shop-service-row{padding-block:20px}
+.catalog-wrench{background:#e5f5ed;color:#087f70;border-radius:12px}
+.admin-page{color:#1c2930}
+.admin-shop-mark,.admin-profile{background:linear-gradient(145deg,#d8f3e2,#ffe4bb);color:#08705f}
+.admin-sidebar>button.active{background:#e1f7ed;color:#08705f}
+.admin-stat-card{border-radius:15px}
+.admin-stat-card:nth-child(1){background:linear-gradient(140deg,#fff3df,#fffaf2)}
+.admin-stat-card:nth-child(2){background:linear-gradient(140deg,#e6f7ef,#f9fffb)}
+.admin-stat-card:nth-child(3){background:linear-gradient(140deg,#eaf1ff,#fbfcff)}
+.admin-stat-card:nth-child(4){background:linear-gradient(140deg,#f9eafa,#fffaff)}
+.stat-symbol{background:#ffffffb8}
+.admin-panel,.request-card,.worker-card,.rating-score-card,.service-editor,.service-admin-row,.review-card{border-radius:14px;box-shadow:0 5px 18px #28352e08}
+.login-story{background:radial-gradient(ellipse at 84% 91%,#f6bd54 0,transparent 34%),radial-gradient(ellipse at 20% 78%,#19a58b 0,transparent 39%),linear-gradient(135deg,#154a62,#126d72 57%,#315a87);border-radius:22px}
+.login-story-copy .eyebrow{color:#d5f4df}
+.login-story-copy .eyebrow-line{background:#ffcf5a}
+.login-form-card{border-radius:20px;box-shadow:0 15px 45px #273b2912}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f6a623;outline-offset:3px}
+@media(max-width:680px){
+  .vehicle-strip{padding-inline:10px;border-radius:13px}
+  .service-tile{min-height:125px;padding:14px;border-radius:13px}
+  .garage-image{height:150px}
+  .garage-info{padding:14px}
+  .roadside-banner{padding:20px 17px;border-radius:15px;gap:12px}
+  .roadside-banner h3{font-size:17px}
+  .roadside-banner>button{padding-inline:12px}
+  .shop-detail-hero{border-radius:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}

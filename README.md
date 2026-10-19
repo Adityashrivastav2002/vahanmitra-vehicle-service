@@ -13,9 +13,9 @@ Open the local URL printed by Vite. The project uses React, Vite and Lucide icon
 
 ## Backend API (Spring Boot)
 
-The first backend slice is in `backend/`: Java 21+, Spring Boot 3.5, Spring Data JPA and a local H2 file database. The API seeds the four Delhi NCR demo shops on its first run and stores changes/bookings in `backend/data/`.
+The first backend slice is in `backend/`: Java 25+, Spring Boot 3.5, Spring Data JPA and a local H2 file database. The API seeds the four Delhi NCR demo shops on its first run and stores changes/bookings in `backend/data/`.
 
-To start it on Windows, install a JDK (21 or later) and run this from the repository root:
+To start it on Windows, install a JDK (25 or later) and run this from the repository root:
 
 ```bash
 cd backend
@@ -63,7 +63,7 @@ All marketplace content, reviews, workers and bookings are local sample data. Se
 
 ### Backend
 
-- Java 21 + Spring Boot, split initially into clear modules: identity, vehicle profiles, partner/catalog, search, bookings, dispatch, job tracking, notifications and payments.
+- Java 25 + Spring Boot, split initially into clear modules: identity, vehicle profiles, partner/catalog, search, bookings, dispatch, job tracking, notifications and payments.
 - PostgreSQL for users, partner locations, service catalogs, bookings, quotes and job state. Add PostGIS for nearby-partner queries; Redis for short-lived availability, rate limits and dispatch coordination.
 - Spring Security with OAuth2/OIDC, role-based permissions for customers, mechanics, shops and operators. Store media in object storage and keep payment provider tokens out of application tables.
 - REST APIs for browse, availability, booking and shop actions. Publish domain events through a broker such as Kafka or RabbitMQ as volume and operational needs justify it.
