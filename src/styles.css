@@ -220,3 +220,28 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 @keyframes route-dash{to{stroke-dashoffset:-28}}@keyframes route-ping{0%,100%{r:4;opacity:.75}50%{r:6;opacity:1}}.hero-route{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}.hero-route path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-dasharray:5 8;opacity:.8;animation:route-dash 5s linear infinite}.hero-route circle{fill:#f47a38;stroke:#fff;stroke-width:2;animation:route-ping 2.4s ease-in-out infinite}.art-car{z-index:2}.floating-card{z-index:3}.art-spark.s1{top:34%;left:18%}.art-spark.s2{top:63%;right:20%}.public-delivery-proof{box-shadow:0 12px 28px #0c644312;transition:transform .22s ease,box-shadow .22s ease}.public-delivery-proof:hover{transform:translateY(-2px);box-shadow:0 16px 34px #0c64431b}.proof-icon{transition:transform .25s ease}.public-delivery-proof:hover .proof-icon{transform:rotate(-7deg) scale(1.05)}@media(prefers-reduced-motion:reduce){.hero-route path,.hero-route circle{animation:none!important}.public-delivery-proof,.proof-icon{transition:none!important}}
 
 .live-contact-fields{margin:12px 0 4px}.booking-api-error{margin:8px 0 0;color:#a13f35;font-size:11px;line-height:1.5}.modal-actions .primary-action:disabled{opacity:.55;cursor:not-allowed}.live-contact-fields input:focus-visible{outline:2px solid #19866c;outline-offset:2px}
+
+/* Roadside and official challan shortcuts */
+.feature-shortcuts{margin:2px 0 52px}
+.feature-heading{margin-bottom:17px}
+.feature-heading h2{margin:8px 0 0;color:#1c2930;font:700 25px/1.2 Manrope,sans-serif;letter-spacing:-.8px}
+.feature-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.feature-card{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1fr);min-width:0;min-height:218px;padding:0;overflow:hidden;border:1px solid #eee7dc;border-radius:19px;text-align:left;text-decoration:none;color:#fff;box-shadow:0 8px 24px #352d1d0b;transition:transform .22s ease,box-shadow .22s ease}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px #352d1d1c}
+.feature-card:focus-visible{outline:3px solid #087f70;outline-offset:3px}
+.miles-feature{background:linear-gradient(120deg,#e91f53,#f65c55 55%,#ff9652)}
+.challan-feature{background:linear-gradient(120deg,#351253,#4d2170 58%,#743785)}
+.feature-art{display:block;min-width:0;min-height:218px;overflow:hidden}
+.feature-art img{display:block;width:100%;height:100%;min-height:218px;object-fit:cover;transition:transform .45s cubic-bezier(.2,.75,.25,1)}
+.feature-card:hover .feature-art img{transform:scale(1.045)}
+.feature-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;padding:23px 22px}
+.feature-kicker{font-size:8px;font-weight:800;letter-spacing:.13em;color:#fff9d7}
+.challan-feature .feature-kicker{color:#d9c4f3}
+.feature-copy strong{font:800 clamp(17px,1.6vw,22px)/1.13 Manrope,sans-serif;letter-spacing:-.65px;color:#fff}
+.feature-description{font-size:10px;line-height:1.55;color:#fff;opacity:.86}
+.feature-cta{display:inline-flex;align-items:center;gap:7px;margin-top:2px;font-size:10px;font-weight:800;color:#fff}
+.feature-cta svg{transition:transform .2s ease}
+.feature-card:hover .feature-cta svg{transform:translateX(3px)}
+@media(max-width:760px){.feature-card-grid{grid-template-columns:1fr;gap:13px}.feature-card{min-height:205px;grid-template-columns:minmax(0,.9fr) minmax(0,1fr)}.feature-art,.feature-art img{min-height:205px}.feature-copy{padding:20px 22px}}
+@media(max-width:480px){.feature-shortcuts{margin-bottom:38px}.feature-heading h2{font-size:22px}.feature-card{grid-template-columns:1fr;min-height:0}.feature-art,.feature-art img{height:158px;min-height:158px;max-height:158px}.feature-copy{min-height:178px;padding:17px 19px;gap:8px}.feature-copy strong{font-size:21px}.feature-description{max-width:31em}}
+@media(prefers-reduced-motion:reduce){.feature-card,.feature-art img,.feature-cta svg{transition:none!important}}
