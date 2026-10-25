@@ -95,10 +95,61 @@ function BookingModal({garage:g,vehicle,onClose,onConfirm,step,setStep}){return 
 function BookingModalV2({garage:g,vehicle,location,dataSource,bookingError,onClose,onConfirm,step,setStep}){
  const modeOptions=getServiceModes(g).map(mode=>mode==='At garage'?'At the garage':mode==='Roadside help'?'Roadside recovery':mode==='Doorstep'?'Doorstep service':mode);
  const suggestedMode=modeOptions.includes('Doorstep service')?'Doorstep service':modeOptions.includes('Roadside recovery')?'Roadside recovery':modeOptions.includes('Pickup & drop')?'Pickup & drop':modeOptions[0];
- const [bookingVehicle,setBookingVehicle]=useState(vehicle),[requestedService,setRequestedService]=useState(g.services[0]),[serviceLocation,setServiceLocation]=useState(location),[mode,setMode]=useState(suggestedMode),[preferredTime,setPreferredTime]=useState('Today · 2:00–4:00 PM'),[customerName,setCustomerName]=useState(''),[customerPhone,setCustomerPhone]=useState('');
+ const [bookingVehicle,setBookingVehicle]=useState(vehicle);
+ const [requestedService,setRequestedService]=useState(g.services[0]);
+ const [serviceLocation,setServiceLocation]=useState(location);
+ const [mode,setMode]=useState(suggestedMode);
+ const [preferredTime,setPreferredTime]=useState('Today · 2:00–4:00 PM');
+ const [customerName,setCustomerName]=useState('');
+ const [customerPhone,setCustomerPhone]=useState('');
  const validPhone=/^[6-9]\d{9}$/.test(customerPhone.trim());
- const submit=()=>{if(dataSource==='live'&&(!customerName.trim()||!validPhone))return;onConfirm({vehicle:bookingVehicle,service:requestedService,location:serviceLocation,mode,preferredTime,customerName:customerName.trim(),customerPhone:customerPhone.trim()})};
- return <div className="modal-backdrop" onMouseDown={event=>event.target===event.currentTarget&&onClose()}><section className="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title"><button className="modal-close" onClick={onClose} aria-label="Close booking"><X size={18}/></button><div className="modal-top"><div className="eyebrow muted"><span className="eyebrow-line"/> {step===1?'BOOKING DETAILS · STEP 1 OF 3':step===2?'SERVICE MODE · STEP 2 OF 3':'REVIEW · STEP 3 OF 3'}</div><div className="booking-progress" aria-label={'Step '+step+' of 3'}>{[1,2,3].map(progressStep=><span key={progressStep} className={step>=progressStep?'complete':''}/>)}</div><h2 id="booking-title">{step===1?'Let’s get you sorted.':step===2?'At home or at the garage?':'Review your request'}</h2><p>{step===1?g.name+' can help with your '+bookingVehicle.toLowerCase()+' service.':step===2?'Choose a service mode and a time that works for you.':'Check the details before sending your booking request.'}</p></div><div className="modal-summary"><div className={'summary-icon '+g.image}>{g.icon}</div><div><b>{g.name}</b><small><Star size={12} fill="currentColor"/> {g.rating} <span>·</span> {bookingVehicle} care</small></div><strong>₹{g.price.toLocaleString('en-IN')}<small>starting at</small></strong></div>{step===1?<div className="modal-fields"><label>Your vehicle<select value={bookingVehicle} onChange={event=>setBookingVehicle(event.target.value)}><option>Car</option><option>Bike</option><option>Heavy vehicle</option></select></label><label>What do you need?<select value={requestedService} onChange={event=>setRequestedService(event.target.value)}>{g.services.map(item=><option key={item}>{item}</option>)}</select></label><label>Service location<input value={serviceLocation} onChange={event=>setServiceLocation(event.target.value)} placeholder="Enter your area or address"/></label></div>:step===2?<div className="modal-fields"><label>Where do you need us?<select value={mode} onChange={event=>setMode(event.target.value)}>{modeOptions.map(option=><option key={option}>{option}</option>)}</select></label><label>Preferred time<select value={preferredTime} onChange={event=>setPreferredTime(event.target.value)}><option>Today · 2:00–4:00 PM</option><option>Today · 4:00–6:00 PM</option><option>Tomorrow · 9:00–11:00 AM</option></select></label><div className="estimate-note"><Clock3 size={16}/> Estimated job time: <b>{g.time}</b><span>Partner confirms the final estimate after accepting.</span></div></div>:<div className="booking-review"><div><span>Vehicle</span><b>{bookingVehicle}</b></div><div><span>Service</span><b>{requestedService}</b></div><div><span>Location</span><b>{serviceLocation||'Add your service address'}</b></div><div><span>Service mode</span><b>{mode}</b></div><div><span>Preferred time</span><b>{preferredTime}</b></div><div><span>Estimated service price</span><b>₹{g.price.toLocaleString('en-IN')} <small>starting estimate</small></b></div></div>}{step===3&&dataSource==='live'&&<div className="modal-fields live-contact-fields"><label>Your name<input value={customerName} onChange={event=>setCustomerName(event.target.value)} autoComplete="name" required/></label><label>Mobile number<input value={customerPhone} onChange={event=>setCustomerPhone(event.target.value.replace(/\D/g,'').slice(0,10))} inputMode="numeric" autoComplete="tel-national" placeholder="10-digit mobile number" required/></label></div>}{bookingError&&<p className="booking-api-error" role="alert">{bookingError}</p>}<div className="modal-actions">{step>1&&<button className="back-button" onClick={()=>setStep(step-1)}>Back</button>}<button className="primary-action" disabled={step===3&&dataSource==='live'&&(!customerName.trim()||!validPhone)} onClick={step===1?()=>setStep(2):step===2?()=>setStep(3):submit}>{step===1?'Choose service mode':step===2?'Review request':'Request booking'} <ArrowRight size={16}/></button></div><div className="demo-note"><Sparkles size={13}/>{dataSource==='live'?'Your request will be sent to this service partner.':'Demo experience · no payment or service request will be sent.</div></section></div>
+ const submit=()=>{
+  if(dataSource==='live'&&(!customerName.trim()||!validPhone))return;
+  onConfirm({vehicle:bookingVehicle,service:requestedService,location:serviceLocation,mode,preferredTime,customerName:customerName.trim(),customerPhone:customerPhone.trim()});
+ };
+ return (
+  <div className="modal-backdrop" onMouseDown={event=>event.target===event.currentTarget&&onClose()}>
+   <section className="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <button className="modal-close" onClick={onClose} aria-label="Close booking"><X size={18}/></button>
+    <div className="modal-top">
+     <div className="eyebrow muted"><span className="eyebrow-line"/> {step===1?'BOOKING DETAILS · STEP 1 OF 3':step===2?'SERVICE MODE · STEP 2 OF 3':'REVIEW · STEP 3 OF 3'}</div>
+     <div className="booking-progress" aria-label={'Step '+step+' of 3'}>{[1,2,3].map(progressStep=><span key={progressStep} className={step>=progressStep?'complete':''}/>)}</div>
+     <h2 id="booking-title">{step===1?'Let’s get you sorted.':step===2?'At home or at the garage?':'Review your request'}</h2>
+     <p>{step===1?g.name+' can help with your '+bookingVehicle.toLowerCase()+' service.':step===2?'Choose a service mode and a time that works for you.':'Check the details before sending your booking request.'}</p>
+    </div>
+    <div className="modal-summary">
+     <div className={'summary-icon '+g.image}>{g.icon}</div>
+     <div><b>{g.name}</b><small><Star size={12} fill="currentColor"/> {g.rating} <span>·</span> {bookingVehicle} care</small></div>
+     <strong>₹{g.price.toLocaleString('en-IN')}<small>starting at</small></strong>
+    </div>
+    {step===1&&<div className="modal-fields">
+     <label>Your vehicle<select value={bookingVehicle} onChange={event=>setBookingVehicle(event.target.value)}><option>Car</option><option>Bike</option><option>Heavy vehicle</option></select></label>
+     <label>What do you need?<select value={requestedService} onChange={event=>setRequestedService(event.target.value)}>{g.services.map(item=><option key={item}>{item}</option>)}</select></label>
+     <label>Service location<input value={serviceLocation} onChange={event=>setServiceLocation(event.target.value)} placeholder="Enter your area or address"/></label>
+    </div>}
+    {step===2&&<div className="modal-fields">
+     <label>Where do you need us?<select value={mode} onChange={event=>setMode(event.target.value)}>{modeOptions.map(option=><option key={option}>{option}</option>)}</select></label>
+     <label>Preferred time<select value={preferredTime} onChange={event=>setPreferredTime(event.target.value)}><option>Today · 2:00–4:00 PM</option><option>Today · 4:00–6:00 PM</option><option>Tomorrow · 9:00–11:00 AM</option></select></label>
+     <div className="estimate-note"><Clock3 size={16}/> Estimated job time: <b>{g.time}</b><span>Partner confirms the final estimate after accepting.</span></div>
+    </div>}
+    {step===3&&<div className="booking-review">
+     <div><span>Vehicle</span><b>{bookingVehicle}</b></div><div><span>Service</span><b>{requestedService}</b></div>
+     <div><span>Location</span><b>{serviceLocation||'Add your service address'}</b></div><div><span>Service mode</span><b>{mode}</b></div>
+     <div><span>Preferred time</span><b>{preferredTime}</b></div><div><span>Estimated service price</span><b>₹{g.price.toLocaleString('en-IN')} <small>starting estimate</small></b></div>
+    </div>}
+    {step===3&&dataSource==='live'&&<div className="modal-fields live-contact-fields">
+     <label>Your name<input value={customerName} onChange={event=>setCustomerName(event.target.value)} autoComplete="name" required/></label>
+     <label>Mobile number<input value={customerPhone} onChange={event=>setCustomerPhone(event.target.value.replace(/\D/g,'').slice(0,10))} inputMode="numeric" autoComplete="tel-national" placeholder="10-digit mobile number" required/></label>
+    </div>}
+    {bookingError&&<p className="booking-api-error" role="alert">{bookingError}</p>}
+    <div className="modal-actions">
+     {step>1&&<button className="back-button" onClick={()=>setStep(step-1)}>Back</button>}
+     <button className="primary-action" disabled={step===3&&dataSource==='live'&&(!customerName.trim()||!validPhone)} onClick={step===1?()=>setStep(2):step===2?()=>setStep(3):submit}>{step===1?'Choose service mode':step===2?'Review request':'Request booking'} <ArrowRight size={16}/></button>
+    </div>
+    <div className="demo-note"><Sparkles size={13}/>{dataSource==='live'?'Your request will be sent to this service partner.':'Demo experience · no payment or service request will be sent.'}</div>
+   </section>
+  </div>
+ );
 }
 function BookingsView({booked,jobState,onExplore,onShop}){
  const statusIndex={REQUESTED:0,ACCEPTED:1,EN_ROUTE:2,ARRIVED:2,IN_PROGRESS:3,COMPLETED:4,REJECTED:-1};
