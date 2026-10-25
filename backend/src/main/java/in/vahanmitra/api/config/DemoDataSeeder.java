@@ -14,7 +14,6 @@ public class DemoDataSeeder {
     @Bean
     CommandLineRunner seedShops(ShopRepository shops) {
         return args -> {
-            if (shops.existsById("sharma-auto-care")) return;
             List<Shop> demoShops=List.of(
                 shop("sharma-auto-care","Sharma Auto Care","Your neighbourhood garage","Multi-brand car workshop",4.9,"1.2k","1.2 km","Saket, South Delhi","garage","S","Free 20-point inspection","2–3 hrs",List.of("Delhi"),List.of(
                     service("Periodic car service","Routine check-up, oil & filters",799,"2–3 hrs"),service("AC inspection & gas refill","Cooling check and AC service",1199,"2–4 hrs"),service("Doorstep diagnostics","On-site scan for warning lights",499,"45–60 min"),service("Battery health check","Testing and replacement support",299,"30–45 min"),service("Brake service","Pads, fluid and safety inspection",899,"1–2 hrs"))),
@@ -25,7 +24,15 @@ public class DemoDataSeeder {
                 shop("ncr-roadside-sahayata","NCR Roadside Sahayata","Roadside help across NCR","Heavy vehicle recovery",4.9,"418","4.8 km","Delhi NCR dispatch network","truck","R","Dispatch demo · 24/7","35 min arrival",List.of("Delhi NCR","Delhi","Gurugram","Noida"),List.of(
                     service("Heavy vehicle recovery dispatch","Truck and bus roadside assistance",2499,"35–60 min arrival"),service("Truck tyre replacement","On-site heavy tyre change",1999,"60–90 min"),service("Breakdown inspection","Mechanic visit and fault assessment",1499,"45–75 min arrival"),service("Heavy vehicle towing","Recovery vehicle dispatch",4999,"60–120 min arrival"),service("Fleet maintenance visit","Scheduled multi-vehicle inspection",3499,"Half day")))
             );
-            shops.saveAll(demoShops);
+            List<Shop> moreShops=List.of(
+                shop("citytune-auto-studio","CityTune Auto Studio","Friendly neighbourhood car care","Multi-brand car workshop",4.8,"240+","2.1 km","Lajpat Nagar, Delhi","car","C","Trusted local service","2–3 hrs",List.of("Delhi"),List.of(service("General car service","Inspection and expert repairs",649,"1–3 hrs"))),
+                shop("pitstop-garage","Pitstop Garage","Quick checks, honest prices","Multi-brand car workshop",4.7,"240+","3.4 km","Malviya Nagar, Delhi","garage","P","Trusted local service","2–3 hrs",List.of("Delhi"),List.of(service("Brake and periodic service","Inspection and expert repairs",599,"1–3 hrs"))),
+                shop("south-delhi-car-clinic","South Delhi Car Clinic","Diagnostics without the guesswork","Multi-brand car workshop",4.9,"240+","4.6 km","Hauz Khas, Delhi","car","S","Trusted local service","2–3 hrs",List.of("Delhi"),List.of(service("Car diagnostics","Inspection and expert repairs",899,"1–3 hrs"))),
+                shop("rapid-ride-bike-point","Rapid Ride Bike Point","Two-wheeler experts, ready to help","Two-wheeler specialists",4.8,"240+","5.2 km","Dwarka, Delhi","bike","R","Trusted local service","20–40 min",List.of("Delhi"),List.of(service("Bike service and tyre care","Inspection and expert repairs",349,"20–40 min"))),
+                shop("gearup-two-wheeler-care","GearUp Two Wheeler Care","Bike repairs that keep you moving","Two-wheeler specialists",4.6,"240+","6.3 km","Rajouri Garden, Delhi","bike","G","Trusted local service","20–40 min",List.of("Delhi"),List.of(service("Bike service and roadside help","Inspection and expert repairs",299,"20–40 min"))),
+                shop("highway-truck-assist","Highway Truck Assist","Heavy vehicle support around NCR","Heavy vehicle recovery",4.8,"240+","7.1 km","Manesar, Gurugram","truck","H","Trusted local service","35 min arrival",List.of("Gurugram","Delhi NCR"),List.of(service("Heavy vehicle breakdown recovery","Inspection and expert repairs",1799,"35 min arrival")))
+            );
+            shops.saveAll(java.util.stream.Stream.concat(demoShops.stream(),moreShops.stream()).filter(shop->!shops.existsById(shop.getId())).toList());
         };
     }
     private static Shop shop(String id,String name,String tag,String kind,double rating,String reviews,String distance,String address,String image,String icon,String offer,String time,List<String> areas,List<ServiceOffering> catalog){
